@@ -1,9 +1,9 @@
 # Color Generator ![Python Powered](https://www.python.org/static/community_logos/python-powered-w-100x40.png "LOGO")
-Handle color calculation in a pythonic way !  
+Handle color calculation in a pythonic way !
 **Feel free to contribute !!!** [Source Code](https://github.com/tttienthinh/colorGenerator.git)
 
 ## Installation
-https://pypi.org/project/colorGenerator/  
+https://pypi.org/project/colorGenerator/
 Install from Pypi :
 ```bash
 pip install colorGenerator

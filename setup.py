@@ -4,8 +4,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="colorGenerator", # Replace with your own username
-    version="0.0.6",
+    name="colorGenerator",
+    version="1.0.1",
     author="tttienthinh",
     author_email="tranthuongtienthinh@gmail.com",
     description="This package help you find complementary colors",
