@@ -1,1 +1,1 @@
-from colorGenerator import *
+from .colorGenerator import *

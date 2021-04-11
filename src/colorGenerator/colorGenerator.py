@@ -1,4 +1,5 @@
 from colorsys import *
+import json
 
 """
 This module is created by Tran-Thuong Tien-Thinh using the native colorsys :
@@ -43,10 +44,11 @@ class Color:
         return self.unscale_rgb((self.r, self.g, self.b))
 
     def __str__(self):
-        return str(self.__repr__())
+        r, g, b = self.__repr__()
+        return hex(r*(16**4) + g*(16**2) + b)
 
-    def change(self, rgb):
-        self.r, self.g, self.b = rgb
+    def change(self, s_rgb):
+        self.r, self.g, self.b = s_rgb
 
     def hsl(self):
         h, l, s = rgb_to_hls(self.r, self.g, self.b)
@@ -55,20 +57,28 @@ class Color:
     def complementary(self):
         h, l, s = rgb_to_hls(self.r, self.g, self.b)
         h = (h+0.5) % 1
-        new_color = Color()
-        new_color.change(rgb=hls_to_rgb(h, l, s))
-        return new_color
+        return Color(s_rgb=hls_to_rgb(h, l, s))
 
     def invert_luminosity(self):
         h, l, s = rgb_to_hls(self.r, self.g, self.b)
         l = 1-l
-        new_color = Color()
-        new_color.change(rgb=hls_to_rgb(h, l, s))
-        return new_color
+        return Color(s_rgb=hls_to_rgb(h, l, s))
 
     def show(self):
         r, g, b = self.__repr__()
-        print(f"\x1b[38;2;{r};{g};{b}--- COLOR ---\x1b[0m")
+        print(f"\x1b[38;2;{r};{g};{b}m--- COLOR ---\x1b[0m")
+
+    def save(self, name="color.json"):
+        data = {}
+        data['rgb'] = self.__repr__()
+        data['hex'] = self.__str__()
+        json.dump(data, open(name, 'w'))
+
+    @staticmethod
+    def load(name="color.json"):
+        data = json.load(open(name))
+        rgb = data['rgb']
+        return Color(rgb=rgb)
 
     @staticmethod
     def scale_rgb(rgb):
@@ -76,7 +86,7 @@ class Color:
 
     @staticmethod
     def unscale_rgb(rgb):
-        return tuple([x*255 for x in rgb])
+        return tuple([int(x*255) for x in rgb])
 
 
 class Palette:
@@ -110,6 +120,24 @@ class Palette:
         new_color = Color()
         new_color.change(hls_to_rgb(h, l, s))
         return new_color
+
+    def save(self, name="color.json"):
+        data = []
+        for color in self.colors:
+            d_color = {}
+            d_color['rgb'] = color.__repr__()
+            d_color['hex'] = color.__str__()
+        json.dump(data, open(name, 'w'))
+
+    @staticmethod
+    def load(name="color.json"):
+        datas = json.load(open(name))
+        colors = []
+        for data in datas:
+            rgb = data['rgb']
+            colors.append(Color(rgb=rgb))
+        return Palette(colors=colors)
+
 
 def credits():
     print(f"\x1b[0;36;40mThanks for using ColorGenerator by \x1b[1;31;40mTien-Thinh Tran-Thuong\x1b[0m")

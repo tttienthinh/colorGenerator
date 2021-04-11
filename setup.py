@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="colorGenerator", # Replace with your own username
-    version="0.0.1",
+    version="0.0.5",
     author="tttienthinh",
     author_email="tranthuongtienthinh@gmail.com",
     description="This package help you find complementary colors",
@@ -13,7 +13,10 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/tttienthinh/colorGenerator.git",
     project_urls={
-        "Bug Tracker": "https://github.com/pypa/sampleproject/issues",
+        "Download": "https://pypi.org/project/colorGenerator/",
+        "Source Code": "https://github.com/tttienthinh/colorGenerator.git",
+        "Documentation": "https://colorgenerator.readthedocs.io",
+        "Bug Tracker": "https://github.com/tttienthinh/colorGenerator/issues",
     },
     classifiers=[
         "Programming Language :: Python :: 3",
