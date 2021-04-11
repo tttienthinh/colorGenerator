@@ -64,9 +64,9 @@ class Color:
         l = 1-l
         return Color(s_rgb=hls_to_rgb(h, l, s))
 
-    def show(self):
+    def show(self, end="\n"):
         r, g, b = self.__repr__()
-        print(f"\x1b[38;2;{r};{g};{b}m--- COLOR ---\x1b[0m")
+        print(f"\x1b[38;2;{r};{g};{b}m--- COLOR ---\x1b[0m", end=end)
 
     def save(self, name="color.json"):
         data = {}
@@ -104,10 +104,7 @@ class Palette:
             r += color.r / n
             g += color.g / n
             b += color.b / n
-        new_color = Color()
-        new_color.change((r, g, b))
-        return new_color
-
+        return Color(rgb=(r, g, b))
 
     def average_hsl(self):
         h, s, l = 0, 0, 0
@@ -117,9 +114,7 @@ class Palette:
             h += color_h / n
             s += color_s / n
             l += color_l / n
-        new_color = Color()
-        new_color.change(hls_to_rgb(h, l, s))
-        return new_color
+        return Color(s_rgb=hls_to_rgb(h, l, s))
 
     def save(self, name="color.json"):
         data = []
@@ -127,7 +122,13 @@ class Palette:
             d_color = {}
             d_color['rgb'] = color.__repr__()
             d_color['hex'] = color.__str__()
+            data.append(d_color)
         json.dump(data, open(name, 'w'))
+
+    def show(self):
+        for color in self.colors:
+            color.show(end=" ")
+        print()
 
     @staticmethod
     def load(name="color.json"):
