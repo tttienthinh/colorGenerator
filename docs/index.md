@@ -4,7 +4,7 @@ Handle color calculation in a pythonic way !
 **Feel free to contribute !!!** [Source Code](https://github.com/tttienthinh/colorGenerator.git)
 
 ## Installation
-https://pypi.org/project/colorGenerator/  
+[PYPI link](https://pypi.org/project/colorGenerator/)  
 Install from Pypi :
 ```bash
 pip install colorGenerator
