@@ -24,9 +24,28 @@
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
                 <a class="navbar-brand" href=".">colorGenerator</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <!-- Expanded navigation -->
                 <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem active">
+                                <a href="." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="First%20Step/" class="nav-link">First step</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="about/" class="nav-link">About</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="license/" class="nav-link">License</a>
+                            </li>
+                        </ul>
 
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item">
@@ -34,6 +53,16 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li class="nav-item">
+                                <a rel="prev" class="nav-link disabled">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="First%20Step/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -52,34 +81,13 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#color-generator" class="nav-link">Color Generator</a>
+            <li class="nav-item" data-level="1"><a href="#home" class="nav-link">Home</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-level="2"><a href="#installation" class="nav-link">Installation</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#first-step-using-colorgenerator" class="nav-link">First step using colorGenerator</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#1-converting-rgb-to-hex-and-hsl" class="nav-link">1 Converting RGB to HEX and HSL</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#2-finding-complementary-of-a-color-and-median-of-a-palette" class="nav-link">2 Finding complementary of a color and median of a palette</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#3-saving-and-loading-color-and-palette-of-colors" class="nav-link">3 Saving and Loading color and palette of colors</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#4-selecting-automatically-text-color-for-an-image" class="nav-link">4 Selecting automatically text color for an image</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#5-picking-color-with-tkinter" class="nav-link">5 Picking color with Tkinter</a>
+            <li class="nav-item" data-level="2"><a href="#discover-more" class="nav-link">Discover more</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -90,8 +98,9 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="color-generator">Color Generator <img alt="Python Powered" src="https://www.python.org/static/community_logos/python-powered-w-100x40.png" title="LOGO" /></h1>
-<p>Handle color calculation in a pythonic way !<br />
+<h1 id="home">Home</h1>
+<p><img alt="Python Powered" src="https://www.python.org/static/community_logos/python-powered-w-100x40.png" title="LOGO" /><br />
+Handle color calculation in a pythonic way !<br />
 <strong>Feel free to contribute !!!</strong> <a href="https://github.com/tttienthinh/colorGenerator.git">Source Code</a></p>
 <h2 id="installation">Installation</h2>
 <p>https://pypi.org/project/colorGenerator/<br />
@@ -101,129 +110,11 @@ Install from Pypi :</p>
 <p>Import into your code and ready to go</p>
 <pre><code class="language-python">import colorGenerator as cG
 </code></pre>
-<h1 id="first-step-using-colorgenerator">First step using colorGenerator</h1>
-<h2 id="1-converting-rgb-to-hex-and-hsl">1 Converting RGB to HEX and HSL</h2>
-<pre><code class="language-python">import colorGenerator as cG
-
-# Print some color
-red = cG.Color(rgb=(255, 0, 0))
-
-# Representation of red in HEX
-print(f&quot;Representation of red in HEX : {red}&quot;)
-
-# Representation of red in RGB
-r, g, b = red.__repr__()
-print(f&quot;Representation of red in RGB : {(r, g, b)}&quot;)
-
-# References
-# http://en.wikipedia.org/wiki/HLS_color_space
-# Representation of red in HSL
-h, s, l = red.hsl()
-print(f&quot;Representation of red in HSL : {(h*360, s*100, l*100)}&quot;)
-
-# Show the color in the Terminal
-red.show()
-
-cG.credits()
-</code></pre>
-<p><img alt="Test1 result" src="https://raw.githubusercontent.com/tttienthinh/colorGenerator/main/test/capture/test1.png" title="Capture" /></p>
-<h2 id="2-finding-complementary-of-a-color-and-median-of-a-palette">2 Finding complementary of a color and median of a palette</h2>
-<pre><code class="language-python">import colorGenerator as cG
-
-red = cG.Color(rgb=(255, 0, 0))
-blue = cG.Color(rgb=(0, 255, 0))
-
-# Find the complementary of red
-c_red = red.complementary()
-print(&quot;The complementary of red is : &quot;, end=&quot;&quot;)
-c_red.show()
-
-# Find the median of red and blue
-# We create a palette
-palette = cG.Palette(colors=[red, blue])
-med = palette.average_hsl()
-print(&quot;The median of red and blue is : &quot;, end=&quot;&quot;)
-med.show()
-</code></pre>
-<p><img alt="Test2 result" src="https://raw.githubusercontent.com/tttienthinh/colorGenerator/main/test/capture/test2.png" title="Capture" /></p>
-<h2 id="3-saving-and-loading-color-and-palette-of-colors">3 Saving and Loading color and palette of colors</h2>
-<pre><code class="language-python">import colorGenerator as cG
-
-red = cG.Color(rgb=(255, 0, 0))
-blue = cG.Color(rgb=(0, 255, 0))
-
-# Save red into test3-red.json
-red.save(&quot;test3-red.json&quot;)
-# Loading saved color
-load_red = cG.Color.load(&quot;test3-red.json&quot;)
-print(&quot;The saved color is : &quot;, end=&quot;&quot;)
-load_red.show()
-
-# We create a palette
-palette = cG.Palette(colors=[red, blue])
-# Save the palette test3-palette.json
-palette.save(&quot;test3-palette.json&quot;)
-# Loading saved palette
-load_palette = cG.Palette.load(&quot;test3-palette.json&quot;)
-print(&quot;The saved palette of red and blue is : &quot;, end=&quot;&quot;)
-load_palette.show()
-</code></pre>
-<p><img alt="Test3 result" src="https://raw.githubusercontent.com/tttienthinh/colorGenerator/main/test/capture/test3.png" title="Capture" /></p>
-<h2 id="4-selecting-automatically-text-color-for-an-image">4 Selecting automatically text color for an image</h2>
-<pre><code class="language-python">import colorGenerator as cG
-import cv2, requests
-from PIL import Image, ImageDraw, ImageFont
-
-# Let's Download the background image at
-url = &quot;https://raw.githubusercontent.com/tttienthinh/colorGenerator/main/test/test4-bg.jpg&quot;
-image = requests.get(url)
-open(&quot;test4-bg.jpg&quot;, &quot;wb&quot;).write(image.content)
-
-# Pick two colors from the image
-img = cv2.imread(&quot;test4-bg.jpg&quot;)
-up_left_color = cG.Color(rgb=img[300, 480, ::-1])
-down_right_color = cG.Color(rgb=img[1500, 2400, ::-1])
-
-# This is the 2 picked colors from the image
-up_left_color.show()
-down_right_color.show()
-
-# Creating the palette
-palette = cG.Palette(colors=[
-    up_left_color,
-    down_right_color,
-])
-
-# Extrating the Average color
-average_color = palette.average_rgb()
-average_color.show()
-
-# Creating the text color
-text_color = average_color.complementary()
-text_color.show()
-
-# opening the image and writing text
-img = Image.open(&quot;test4-bg.jpg&quot;)
-draw = ImageDraw.Draw(img)
-font = ImageFont.truetype(&quot;test4-font.ttf&quot;, 335)
-draw.text((150, 320), text=&quot;colorGenerator&quot;, font=font, fill=text_color.__repr__())
-img.save(&quot;test4-result.jpg&quot;)
-</code></pre>
-<p><img alt="Test4 result" src="https://raw.githubusercontent.com/tttienthinh/colorGenerator/main/test/test4-result.jpg" title="Capture" /></p>
-<h2 id="5-picking-color-with-tkinter">5 Picking color with Tkinter</h2>
-<pre><code class="language-python">import colorGenerator as cG
-from tkinter.colorchooser import askcolor
-
-# Ask for a color
-color = askcolor()
-print(color[1])
-r, g, b = color[0]
-
-# Creating the color
-new_color = cG.Color(rgb=(r, g, b))
-new_color.show()
-</code></pre>
-<p><img alt="Test5 result" src="https://raw.githubusercontent.com/tttienthinh/colorGenerator/main/test/capture/test5.png" title="Capture" /></p></div>
+<h2 id="discover-more">Discover more</h2>
+<p><a href=".">Home</a><br />
+<a href="First%20Step/">First Step</a><br />
+<a href="about/">About</a><br />
+<a href="license/">License</a>  </p></div>
             </div>
         </div>
 
@@ -307,5 +198,5 @@ new_color.show()
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2021-04-11 21:26:20.694554+00:00
+Build Date UTC : 2021-04-11 21:59:41.983349+00:00
 -->

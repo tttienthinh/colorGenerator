@@ -1,19 +1,6 @@
-# Color Generator ![Python Powered](https://www.python.org/static/community_logos/python-powered-w-100x40.png "LOGO")
-Handle color calculation in a pythonic way !  
-**Feel free to contribute !!!** [Source Code](https://github.com/tttienthinh/colorGenerator.git)
+# First step
 
-## Installation
-https://pypi.org/project/colorGenerator/  
-Install from Pypi :
-```bash
-pip install colorGenerator
-```
-Import into your code and ready to go
-```python
-import colorGenerator as cG
-```
-## First step using colorGenerator
-### 1 Converting RGB to HEX and HSL
+## 1 Converting RGB to HEX and HSL
 ```python
 import colorGenerator as cG
 
@@ -40,7 +27,7 @@ cG.credits()
 ```
 ![Test1 result](https://raw.githubusercontent.com/tttienthinh/colorGenerator/main/test/capture/test1.png "Capture")
 
-### 2 Finding complementary of a color and median of a palette
+## 2 Finding complementary of a color and median of a palette
 ```python
 import colorGenerator as cG
 
@@ -61,7 +48,7 @@ med.show()
 ```
 ![Test2 result](https://raw.githubusercontent.com/tttienthinh/colorGenerator/main/test/capture/test2.png "Capture")
 
-### 3 Saving and Loading color and palette of colors
+## 3 Saving and Loading color and palette of colors
 ```python
 import colorGenerator as cG
 
@@ -86,7 +73,7 @@ load_palette.show()
 ```
 ![Test3 result](https://raw.githubusercontent.com/tttienthinh/colorGenerator/main/test/capture/test3.png "Capture")
 
-### 4 Selecting automatically text color for an image
+## 4 Selecting automatically text color for an image
 ```python
 import colorGenerator as cG
 import cv2, requests
@@ -125,7 +112,7 @@ img.save("test4-result.jpg")
 ```
 ![Test4 result](https://raw.githubusercontent.com/tttienthinh/colorGenerator/main/test/test4-result.jpg "Capture")
 
-### 5 Picking color with Tkinter
+## 5 Picking color with Tkinter
 ```python
 import colorGenerator as cG
 from tkinter.colorchooser import askcolor

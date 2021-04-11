@@ -22,12 +22,8 @@ palette = cG.Palette(colors=[
     down_right_color,
 ])
 
-# Extrating the Average color
-average_color = palette.average_rgb()
-average_color.show()
-
-# Creating the text color
-text_color = average_color.complementary()
+# Extrating the text color as the average
+text_color = palette.average_hsl().invert_luminosity()
 text_color.show()
 
 # opening the image and writing text

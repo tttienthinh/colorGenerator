@@ -1,1 +1,5 @@
 site_name: colorGenerator
+summary: Handle color calculation in a pythonic way !
+authors:
+    - Tien-Thinh Tran-Thuong
+some_url: https://github.com/tttienthinh/colorGenerator.git

@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="colorGenerator",
-    version="1.0.1",
+    version="1.2.1",
     author="tttienthinh",
     author_email="tranthuongtienthinh@gmail.com",
     description="This package help you find complementary colors",
