@@ -1,6 +1,7 @@
 # Color Generator ![Python Powered](https://www.python.org/static/community_logos/python-powered-w-100x40.png "LOGO")
 Handle color calculation in a pythonic way !  
-**Feel free to contribute !!!** [Source Code](https://github.com/tttienthinh/colorGenerator.git)
+**Feel free to contribute !!!** [Source Code](https://github.com/tttienthinh/colorGenerator.git)  
+[Documentation](https://colorgenerator.readthedocs.io)
 
 ## Installation
 https://pypi.org/project/colorGenerator/  
